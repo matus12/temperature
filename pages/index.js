@@ -6,10 +6,12 @@ const TemperatureFactory = require("./../temperature");
 export async function getServerSideProps() {
   // Fetch data from external API
   const dev = process.env.NODE_ENV !== 'production'
-  const res = dev
-      ? await fetch(`http://localhost:3000/api/getTemp`)
-      : await fetch(`https://matus12-temperature.herokuapp.com/api/getTemp`);
+  // const res = dev
+  //     ? await fetch(`http://localhost:3000/api/getTemp`)
+  //     : await fetch(`https://matus12-temperature.herokuapp.com/api/getTemp`);
   //console.log(await res.json());
+
+    const res = await fetch(`https://matus12-temperature.herokuapp.com/api/getTemp`);
   const data = await res.json()
 
   // Pass data to the page via props

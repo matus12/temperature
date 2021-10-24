@@ -5,6 +5,7 @@ const next = require('next')
 const express = require('express')
 const TemperatureFactory = require("./temperature");
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const port = 3000;
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -17,6 +18,7 @@ app.prepare().then(() => {
     const server = express();
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use( bodyParser.json());
+    server.use(cors());
 
     server.post('/api/temp', (req, res) => {
         console.log(req.body);
