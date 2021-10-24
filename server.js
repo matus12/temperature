@@ -19,7 +19,6 @@ app.prepare().then(() => {
     const server = express();
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use( bodyParser.json());
-    server.use(cors());
 
     server.post('/api/temp', (req, res) => {
         console.log(req.body);
