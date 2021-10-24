@@ -21,7 +21,7 @@ app.prepare().then(() => {
         return handle(req, res);
     });
 
-    server.listen(port, err => {
+    server.listen(process.env.PORT || port, err => {
         if (err) {
             throw err;
         } else {
