@@ -6,6 +6,7 @@ const express = require('express')
 const TemperatureFactory = require("./temperature");
 const bodyParser = require('body-parser');
 const cors = require('cors')
+const axios = require('axios');
 const port = 3000;
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -22,6 +23,7 @@ app.prepare().then(() => {
 
     server.post('/api/temp', (req, res) => {
         console.log(req.body);
+        axios.post('https://webhook.site/b967e837-28cf-422b-9beb-42038cd39b57', req.body);
 
         Temperature.temp = req.body.temp;
         console.log(Temperature.temp);
